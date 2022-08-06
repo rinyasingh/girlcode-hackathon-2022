@@ -127,11 +127,29 @@ function getBodyPart() {
     bodypart = document.getElementById("myTextInputID").value;
 }
 
-function getSymptoms() {
+function getSymptoms(){
     //append symptom to whatever data structure/array based on selected symptoms
     var ailments = getAilment(array);
+    var top1 = { Name: "", NumSymptoms: 0 };
+    var top2 = { Name: "", NumSymptoms: 0 };
+    var top3 = { Name: "", NumSymptoms: 0 };
 
-    Object.keys(ailments).reduce((a1, a12) => ailments[a] > obj[b] ? a : b);
+    ailments.forEach((ailment) => {
+        if (ailment.NumSymptoms>top1.NumSymptoms) {
+            top1 = ailment;
+      }});
+
+    ailments.forEach((ailment) => {
+        if (ailment.NumSymptoms>top.NumSymptoms && ailment!=top1) {
+            top2 = ailment;
+      }});
+
+      ailments.forEach((ailment) => {
+        if (ailment.NumSymptoms>top.NumSymptoms && ailment!=top2 && ailment.top1) {
+            top3 = ailment;
+      }});
+
+    return top1.Name + " " + top2.Name + " " + top3.Name;
 }
 
 function getAilment(array) {
